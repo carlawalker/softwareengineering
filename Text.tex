@@ -1,0 +1,254 @@
+\documentclass[12pt,a4paper,bibliography=totocnumbered,listof=totocnumbered]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage[right]{eurosym}
+\usepackage[printonlyused]{acronym}
+\usepackage{subfig}
+\usepackage{floatflt}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{colortbl}
+\usepackage{paralist}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage[right]{eurosym}
+\usepackage{colortbl}
+\usepackage[subfigure,titles]{tocloft}
+\usepackage[pdfpagelabels=true]{hyperref}
+\usepackage[frenchb]{babel}
+\usepackage[round]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+\lstset{basicstyle=\footnotesize, captionpos=b, breaklines=true, showstringspaces=false, tabsize=2, frame=lines, numbers=left, numberstyle=\tiny, xleftmargin=2em, framexleftmargin=2em}
+\makeatletter
+\def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1em}{\hspace{1,5em} Lst. #1}{#2}}
+\makeatother
+
+\geometry{a4paper, top=27mm, left=30mm, right=20mm, bottom=35mm, headsep=10mm, footskip=12mm}
+
+\hypersetup{unicode=false, pdftoolbar=true, pdfmenubar=true, pdffitwindow=false, pdfstartview={FitH},
+	pdftitle={Bachelorarbeit},
+	pdfauthor={Alina Asisof},
+	pdfsubject={Bachelorarbeit},
+	pdfcreator={\LaTeX\ with package \flqq hyperref\frqq},
+	pdfproducer={pdfTeX \the\pdftexversion.\pdftexrevision},
+	pdfkeywords={Bachelorarbeit},
+	pdfnewwindow=true,}
+
+\pdfinfo{/CreationDate (D:20110620133321)}
+
+
+\begin{document}
+
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% Kopf- und Fusszeile
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\leftmark}{\rightmark}
+\pagestyle{fancy}
+\lhead{ }
+\chead{ }
+\rhead{\thesection\space\contentsname}
+\lfoot{Software Engineering}
+\cfoot{ }
+\rfoot{\ \linebreak Seite \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Vorspann
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\theHsection}{\Roman{section}}
+\pagenumbering{Roman}
+
+% ----------------------------------------------------------------------------------------------------------
+% Titelseite
+% ----------------------------------------------------------------------------------------------------------
+\thispagestyle{empty}
+\begin{center}
+	
+	\vspace*{2cm}
+	\Huge
+	\textbf{Software Engineering}\\
+\vfill
+	\Large
+	\textbf{This may be our heading}\\
+\vfill
+	\Large
+	\textbf{Prof. Dr. Philip Zahn}\\
+
+	
+\vfill
+
+
+\Large
+Spring term 2017
+
+\end{center}
+
+\begin{flushleft}	
+	\vfill
+	\normalsize
+\textbf{Submitted by:} \\
+Alina Asisof\\
+12-749-677\\ 
+Carla Walker\\ 
+xx-xxx-xx\\ 
+Joao Matias\\ 
+xx-xxx-xxx\\ 
+University of St. Gallen\\ 
+ 
+\vfill
+\textbf 18. January 2017
+
+\end{flushleft}	
+
+
+
+\pagebreak
+
+% ----------------------------------------------------------------------------------------------------------
+% Verzeichnisse
+% ----------------------------------------------------------------------------------------------------------
+% TODO Typ vor Nummer
+
+\renewcommand{\cftfigpresnum}{Abb. }
+\settowidth{\cfttabnumwidth}{Abb. 10\quad}
+\settowidth{\cftfignumwidth}{Abb. 10\quad}
+
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\singlespacing
+\rhead{CONTENT}
+\renewcommand{\contentsname}{Content}
+
+\phantomsection
+\addcontentsline{toc}{section}{\texorpdfstring{\hspace{0.35em}Content}{Content}}
+\addtocounter{section}{1}
+\tableofcontents
+\pagebreak
+
+%\pagebreak
+
+
+\pagebreak
+
+
+% ----------------------------------------------------------------------------------------------------------
+% Inhalt
+% ----------------------------------------------------------------------------------------------------------
+% Abstände Überschrift
+\titlespacing{\section}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% Kopfzeile
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{ }
+\renewcommand{\subsubsectionmark}[1]{ }
+\lhead{Chapter \thesection}
+\rhead{\rightmark}
+
+\onehalfspacing
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\theHsection}{\arabic{section}}
+\setcounter{section}{0}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%--------------------
+%Vorwort
+%--------------------
+
+\section{Introduction}
+\newpage
+
+
+% ----------------------------------------------------------------------------------------------------------
+% Einleitung
+% ----------------------------------------------------------------------------------------------------------
+\section{Something}
+Der europäische Mensch», 
+
+
+\section{Volkswirtschaftlicher Unterricht im deutschsprachigen Raum}
+
+Bereits im Vorwort des Buchs "Konkurrierende Deutungen des Sozialen" wird gesagt, dass das wissenschaftliche Feld in der Schweiz im 19 Jahrhundert entsprechend der politischen Struktur segmentiert war. Diese Aufsplitterung verhinderte die Entstehung gesamtschweizerischer paradigmatischer Diskurse und  die 
+ 
+
+\subsection{Volkswirtschaft im deutschsprachigen Ausland}
+\subsection{Einzug der Grenznutzenschule an der Universität Zürich}
+\section{Entwicklungen im Ausland}
+
+%
+ ----------------------------------------------------------------------------------------------------------
+% Kurzbiographien
+% ----------------------------------------------------------------------------------------------------------
+
+\subsection{Richard Büchner:}
+
+\section{Ökonomen der Grenznutzenschule}
+\subsection{Manuel Saitzew: der Interventionist}
+\subsubsection{Saitzew als Verkehrswissenschaftler}
+%Manuel Saitzew war ein Sammler und hinterliess der ZB rund 1600 sehr wertvolle Bücher. Dies am Ende unter Beiträge ebenfalls erwähnen \citep{Grundriss}
+%
+
+\citep{SaitzewGeburi} Bickel schreibt hier einige nennenswerte Charakteristika über Saitzew: "Die Lehrtätigkeit Prof. Saitzews an 
+\\
+
+
+%%
+\section{Die Verschweizerung der Staatwissenschaftlichen Fakultät}
+\section{Die Abwertungsdebatte}
+\section{Die Glaubwürdigkeitskrise der Neoklassischen Schule}
+
+\section{Hochschulpolitik} ----------------------------------------------------------------------------------------------------------
+\section{Epilogue}
+
+% ----------------------------------------------------------------------------------------------------------
+% Literatur
+% ----------------------------------------------------------------------------------------------------------
+
+% Literaturliste soll im Inhaltsverzeichnis auftauchen
+
+
+\bibliographystyle{eehd_url}
+
+
+% Literaturliste endgültig anzeigen
+\bibliography{literatur}
+
+%-------------------
+%Staatsarchiv des Kantons Zürich
+%---------------------
+
+%Wie Literaturverzeichnis aufteilen
+
+% ----------------------------------------------------------------------------------------------------------
+% Anhang
+% ----------------------------------------------------------------------------------------------------------
+
+\section{Appendix}
+
+
+
+\subsection{Tabellen}
+
+\subsection{Statistiken}
+
+\subsection{Zeittafel}
+
+
+
+\end{document}
+
+
+
+
