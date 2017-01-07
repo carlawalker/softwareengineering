@@ -16,4 +16,4 @@ for f in glob.glob("../softwareengineering/Data/RV*.xlsx"):
     df = pd.read_excel(f)
     dataset = dataset.append(df,ignore_index=True)
     
-dataset.describe()
+dataset.head()
