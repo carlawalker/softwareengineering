@@ -1,0 +1,56 @@
+% I made a very basic document starting from the TexShop Template "AMS-Article"
+% I added some basic information about our project so far
+
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage[english]{babel}
+\usepackage{pdfpages} % Required to add pdf files
+\usepackage{listings} % Required for insertion of code
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs} %% The AMS-LaTeX extensions for mathematical typesetting. 
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% Document information
+\title{The effect of the abandonment of the Swiss Franc - Euro parity on tourism}
+\author{Alina Asisof, Joao Matias, Carla Walker}
+\newcommand{\hmwkthesistype}{Group Project: Documentation}
+\newcommand{\hmwkDueDate}{Wednesday,\ January\ 18,\ 2017} 
+
+% Document content 
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+
+\newpage
+\section{Introduction}
+\newcommand{\package}{\emph}
+
+
+What problem does our project solve ? 
+For what will our code be used? 
+Research question: What effect had the abandonment of the Swiss Franc - Euro parity of January 2015 on tourism within and outside of Switzerland? 
+How does the strong CHF influence travel behavior? 
+CHF goes up - people travel more outside of Switzerland? 
+How will we analyze this? 
+What are the tools that we are going to use? Python and Latex. 
+
+
+\newpage
+\section{Dataset}
+
+BFS, Fianzen.net
+%\subsection{}
+
+\newpage
+\section{Regression}
+
+\newpage
+\section{Conclusion}
+
+\end{document}  

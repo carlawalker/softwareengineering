@@ -25,10 +25,8 @@
 \usepackage[pdfpagelabels=true]{hyperref}
 \usepackage[frenchb]{babel}
 \usepackage[round]{natbib}
-\bibliographystyle{unsrtnat}
-\usepackage[utf8]{inputenc}
 \usepackage{listings}
-\usepackage[nottoc]{tocbibind}
+
 
 \lstset{basicstyle=\footnotesize, captionpos=b, breaklines=true, showstringspaces=false, tabsize=2, frame=lines, numbers=left, numberstyle=\tiny, xleftmargin=2em, framexleftmargin=2em}
 \makeatletter
@@ -47,12 +45,6 @@
 	pdfnewwindow=true,}
 
 \pdfinfo{/CreationDate (D:20110620133321)}
-
-
-% Zitation
-\title{Bibliography management: \texttt{natbib} package}
-\author{Share\LaTeX}
-\date { }
 
 
 \begin{document}
@@ -91,7 +83,7 @@
 	\textbf{The effect of the abandonment of the Swiss Franc - Euro parity on tourism}\\
 \vfill
 	\Large
-	{Prof. Dr. Philipp Zahn}\\
+	Prof. Dr. Philipp Zahn}\\
 	\Large
 	University of St. Gallen
 	
@@ -108,8 +100,9 @@ Alina Asisof, Master of Business Innovation HSG\\
 Student Number: 12-749-677\\ 
 Carla Walker, Master of Business Innovation HSG\\ 
 Student Number: 12-611-091\\ 
-Joao Matias, Bachelor of XYZ University of Lissabon\\ 
-Student Number: xx-xxx-xxx\\ 
+
+Joao Matias, Bachelor of Economics University of Lissabon\\ 
+Student Number: 16-601-809\\ 
 \vfill
 Group Project Documentation\\ 
  
@@ -184,6 +177,7 @@ Group Project Documentation\\
 %How will we analyze this? 
 %What are the tools that we are going to use? Python and Latex. 
 
+
 On January 15th the Swiss National Bank decided to abandon the Swiss Franc - Euro parity of 1.20:1. The financial markets reacted immediately: The exchange rate fell drastically and a Euro temporarily was worth less than 0.8 Swiss Francs. The decision surprised experts and executives alike and evoked great concerns regarding the future competitiveness of the Swiss industries. Some of the analysis are yet to be made and conclusions to be drawn. The risen value of the Swiss currency also left the national tourism industry sorrowful, as hotel owners and owners of popular touristic attractions alike feared a diminishing number of foreign tourists and hence missing out on revenue. Our project will focus on the tourism industry: We will conduct a simple regression to see, whether the decision of the Swiss National Bank on abandoning the parity had any effect on the national tourism industry. Did the tourism in the country decline or did it remain unchanged? How did the strong Swiss Franc influence the travel behavior within and outside of Switzerland? Are the Swiss traveling more since January 15th due to the risen value of their currency? Can we conclude an impact on tourism on the basis of tourist numbers? 
 
 
@@ -192,6 +186,7 @@ For the documentation of our project we have used LateX, as it is a tool easily 
 \\
 We will first introduce our data set and parameters. In the following chapter we will conduct the regression and present the results of our Python code. We will add a short explanation on the code, so that the code can be easily understood and reproduced. In the last part we will conclude on the tourism effects of the parity abandonment and assess, to what extend the concerns expressed by hotel owners and experts were justified. 
 
+
 \newpage
 
 
@@ -199,6 +194,7 @@ We will first introduce our data set and parameters. In the following chapter we
 % 
 % ----------------------------------------------------------------------------------------------------------
 \section{Dataset}
+
 
 Our term paper researches the question how the abandonment of the Swiss franc - euro parity influences certain parameters in Swiss tourism. To analyze the question, we looked at two datasets. The first one is the historical exchange rate between the euro and the Swiss franc. The second dataset is from the Federal Statistical Office to the chronological development of travels with overnight stays, of the Swiss population from 15 years old. 
 
@@ -218,6 +214,7 @@ Overview Parameters:
 \item Daily expenses per person 
 \item Destination of travel 
 \end{itemize}
+
 
 \newpage
 \section{Regression}
@@ -259,8 +256,6 @@ Overview Parameters:
 
 \section{Appendix}
 
-\bibliographystyle{plain}
-\bibliography{refs}
 
 
 \subsection{Tables}
