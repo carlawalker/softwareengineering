@@ -7,9 +7,11 @@ TODO
 --------
 - Documentation of our project progress in the Latex Doc 
 - Create an own template for Latex? 
-- insert Dataset to Python 
-- create code for regression 
-
+- Insert Dataset to Python 
+- Create a new python model for calculations: necessary regressions for each variable;
+- Module for graph plotting;
+- In the end write a reflection section on Github, Latex and Python experience and overall coordination between members of the group;
+- Don't forget to update frequently the documentation. 
 
 
 
