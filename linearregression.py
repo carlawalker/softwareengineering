@@ -37,23 +37,22 @@ travels_x = dataset['exchange_rate'].values
 exchange_y = dataset['travels_private'].values
 # tbd:  change dataset x,y for fit function
 
+# split the data into training/testing sets 
+travels_x_train = travels_x
+travels_x_test = travels_x
+
+exchange_y_train = exchange_y
+exchange_y_test = exchange_y
+
 # identifying the parameters
-x = [[2008,2009,2016],[1.59,1.51,1.09]]
-y = [[2008,2009,2016],[17873.64, 15932.37,18820.7]]
+travels_x_train = [[2008,2009,2016],[1.59,1.51,1.09]]
+exchange_y_train = [[2008,2009,2016],[17873.64, 15932.37,18820.7]]
 regr = linear_model.LinearRegression()
-regr.fit(x,y)
+regr.fit(travels_x_train, exchange_y_train)
 
 #adjusting and plotting regression model
-plt.scatter(x, y)
-plt.plot(x, y)
+plt.scatter(travels_x_test,exchange_y_test, color='black')
+plt.plot(travels_x_train, regr.predict(exchange_y_test), color='blue')
+
 plt.axis([1, 1.6, 15000, 19000 ])
 plt.show()
-
-
-#convert RV into a pandas data frame 
-#bos = pd.Dataframe ("final_dataset.csv")
-#bos.head()
-
-#a=number of foreign travels; b=exchange rate
-#a=; b=
-#x=polyval([a,b],t)
