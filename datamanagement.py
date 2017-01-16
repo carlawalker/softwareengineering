@@ -33,10 +33,15 @@ for f in glob.glob("../softwareengineering/Data/RV*.xlsx"):
 
 dataset = dataset.set_index("year").T
 
-dataset
+
+#Correction to "year" column. For some reason the code won't identify it, this correction enables to make the code consider the denomination "year" again.
 
 
-#Option to save the table as csv for visualization. For some reason "year" does not appear. Can be corrected. 
+dataset = dataset.reset_index().rename(columns={"index" : "year"})
+dataset.columns.name = None
 
 
-dataset.to_csv("final_dataset.csv")
+#Redefining year as index.
+
+dataset.set_index("year", inplace = True)
+
