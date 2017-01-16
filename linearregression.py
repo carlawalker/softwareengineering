@@ -53,7 +53,6 @@ regr.fit(travels_x_train, exchange_y_train)
 #adjusting and plotting regression model
 plt.scatter(travels_x_test,exchange_y_test, color='black')
 plt.plot(travels_x_train, regr.predict(exchange_y_test), color='blue')
+
 plt.axis([1, 1.6, 15000, 19000 ])
 plt.show()
-
-
