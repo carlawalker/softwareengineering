@@ -8,35 +8,15 @@ Created on Tue Jan 10 11:55:46 2017
 
 
 #Import pandas and glob with the usual conventions.
-import pandas as pd
-import glob
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 import numpy as np
 
-#set directory of data import files
-# @var curr = files directory
-curr = "./Desktop/Software Engineering/python/clone_repository/softwareengineering/Data/RV*.xlsx"
-
-#Using glob to create a list with all the Research Variables (RV) files in the Data folder.  
-glob.glob(curr)
-
-#Creation of the data frame. This technique appends all the different rows according to the same year in column.  
-dataset = pd.DataFrame()
+#import dataset from the datamanagement module
 
 
-# dataset iimport function
-# @param f = current file in directory
-for f in glob.glob(curr):
-    df = pd.read_excel(f)
-    dataset = dataset.append(df, ignore_index=True)
-    
-#Transposition of the resulting table. Year (common row) is used as index while transposed. This way we obtain the end result as described above.
-dataset = dataset.set_index("year").T
+from datamanagement import dataset 
 
-#Option to save the table as csv for visualization. For some reason "year" does not appear. Can be corrected. 
-dataset.to_csv("final_dataset.csv")
-print (dataset)
 
 #dataset['travels_private'].plot()
 # @var x_df = DataFrame column for base "exchange_rate"
