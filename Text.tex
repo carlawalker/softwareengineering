@@ -1,5 +1,4 @@
 \documentclass[12pt,a4paper,bibliography=totocnumbered,listof=totocnumbered]{scrartcl}
-\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -23,7 +22,6 @@
 \usepackage{colortbl}
 \usepackage[subfigure,titles]{tocloft}
 \usepackage[pdfpagelabels=true]{hyperref}
-\usepackage[frenchb]{babel}
 \usepackage[round]{natbib}
 \usepackage{listings}
 
@@ -83,7 +81,7 @@
 	\textbf{The effect of the abandonment of the Swiss Franc - Euro parity on tourism}\\
 \vfill
 	\Large
-	Prof. Dr. Philipp Zahn}\\
+	{Prof. Dr. Philipp Zahn}\\
 	\Large
 	University of St. Gallen
 	
@@ -180,7 +178,6 @@ Group Project Documentation\\
 
 On January 15th the Swiss National Bank decided to abandon the Swiss Franc - Euro parity of 1.20:1. The financial markets reacted immediately: The exchange rate fell drastically and a Euro temporarily was worth less than 0.8 Swiss Francs. The decision surprised experts and executives alike and evoked great concerns regarding the future competitiveness of the Swiss industries. Some of the analysis are yet to be made and conclusions to be drawn. The risen value of the Swiss currency also left the national tourism industry sorrowful, as hotel owners and owners of popular touristic attractions alike feared a diminishing number of foreign tourists and hence missing out on revenue. Our project will focus on the tourism industry: We will conduct a simple regression to see, whether the decision of the Swiss National Bank on abandoning the parity had any effect on the national tourism industry. Did the tourism in the country decline or did it remain unchanged? How did the strong Swiss Franc influence the travel behavior within and outside of Switzerland? Are the Swiss traveling more since January 15th due to the risen value of their currency? Can we conclude an impact on tourism on the basis of tourist numbers? 
 
-
 We will analyze this by using a data set provided by the Federal Statistical Office. The Federal Statistical Office publishes a variety of data on tourism throughout the year. For 2015 there is a comprehensive set of data available, gathered in form of Excel-files and officially published. For the year 2016 there is a data set available gathering the data of the first half of the year which we will use as a proxy for the year 2016, since more recent data will not be available before February. These data sets will be compared to the data before January 15th/2015 and a regression on the exchange rate of the Swiss Franc to Euro will be made. We will therefore use financial data published at "Finanzen.net", so both sources are trustworthy and well known. We will compute a regression with the help of a code written in Python on Spyder. To do that, we will remotely collaborate with the help of GitHub, a platform used to write code in groups. GitHub will also help us with the coordination and collaboration challenge connected to our project.\\
 For the documentation of our project we have used LateX, as it is a tool easily embedding both Python Code and different types of content. \\
 \\
@@ -196,36 +193,42 @@ We will first introduce our data set and parameters. In the following chapter we
 \section{Dataset}
 
 
+
 Our term paper researches the question how the abandonment of the Swiss franc - euro parity influences certain parameters in Swiss tourism. To analyze the question, we looked at two datasets. The first one is the historical exchange rate between the euro and the Swiss franc. The second dataset is from the Federal Statistical Office to the chronological development of travels with overnight stays, of the Swiss population from 15 years old. 
 
-Financial Data: 
-As the Swiss Exchange Rate to the Euro was falling for several years, the Swiss National Bank of Switzerland decided on September 6, 2011 to fix the minimum exchange rate of 1.20 franc for one Euro. She declared, that the minimum exchange rate will be enforced with all the consequences and that she is willing to buy unlimited foreign exchanges \cite{SNBa}. With this action step, the Swiss National Bank reacted to the constant threat of the Swiss Economy and the risk of a deflationary trend, which resulted from the massive overvaluation of the Swiss Franc. On January 15, the Swiss National Bank discontinued the minimum exchange rate of 1.20 Franc to the Euro \cite{SNBb}. The Swiss National Bank declared that maintaining the minimum exchange rate for the Swiss franc against the euro is no longer justified. The Swiss Economy, which is oriented towards export and tourism, faced a great challenge. 
 
-For our term paper, we took data from Statista, a statistics portal. The statistic chosen displays the annual exchange rate (standardized measure) of the euro to the Swiss franc (EURCHF), according to the data of the European Central Bank. For our research, we looked at the data from the years 2008 to 2016. In 2008, for example, the euro to Swiss franc exchange rate was equal to approximately 1.59, which means that one euro could buy 1.59 Swiss francs. In 2015, the euro to Swiss franc exchange rate was equal to approximately 1.07, which means that one euro could only buy 1.07 Swiss francs. 
+As the Swiss Exchange Rate to the Euro was falling for several years, the Swiss National Bank of Switzerland decided on September 6, 2011 to fix the minimum exchange rate of 1.20 franc for one euro. She declared, that the minimum exchange rate will be enforced with all the consequences and that she is willing to buy unlimited foreign exchanges (SNB, 2011). With this action step, the Swiss National Bank reacted to the constant threat of the Swiss Economy and the risk of a deflationary trend, which resulted from the massive overvaluation of the Swiss Franc. On January 15, the Swiss National Bank discontinued the minimum exchange rate of 1.20 Franc to the Euro (SNB, 2015). The Swiss National Bank declared that maintaining the minimum exchange rate for the Swiss franc against the euro is no longer justified. The Swiss Economy, which is oriented towards export and tourism, faced a great challenge. 
 
-Toursim data: 
-The dataset from the Federal Statistical Office of the chronological development of travels with overnight stays is available as an Excel-table for download. The table contains informations such as the number of travels per person, the demographics of the people who travelled and more detailed information about the travel itself, including the duration, the purpose, the type of accommodation, the means of transport, the destination and more. Furthermore, the table shows the daily expenses per person during the traveling. 
+\begin{figure}[htbp] 
+  \centering
+     \includegraphics[width=0.3\textwidth]{exchange_variable}
+  \caption{Variable explorer in Python}
+  \label{fig: figure1}
+\end{figure}
 
-For our research, we decided for the following parameter: the number of travel per person, the daily expenses per person and the destination, looking at if people travelled within Switzerland or if they travelled to a foreign country. 
+For our term paper, we took data from Statista, a statistics portal. The statistic chosen displays the annual exchange rate (standardized measure) of the euro to the Swiss franc (EUR-CHF), according to the data of the European Central Bank. We only considered the data from the years 2008 to 2016. In 2008, for example, the euro to Swiss franc exchange rate was equal to approximately 1.59, which means that one euro could buy 1.59 Swiss francs. In 2015, the euro to Swiss franc exchange rate was equal to approximately 1.07, which means that one euro could only buy 1.07 Swiss francs (Statista, 2016)
 
-Overview Parameters: 
-\begin{itemize}
-\item Total number of travels ? Travels per Person 
-\item Daily expenses per person 
-\item Destination of travel 
-\end{itemize}
+
+For analyzing the relationship between the EUR-CHF exchange rate and Swiss tourism, the Federal Statistical Office provides a detailed dataset of the chronological development of travels with overnight stays. The dataset is available as an Excel-table for download. The table contains information such as the number of travels per person, the demographics of the people who travelled and more detailed information about the travels itself, including the duration, the purpose, the type of accommodation, the means of transport, the destination and more. Furthermore, the table shows the daily expenses per person during the traveling. 
+
+For our research, we decided for the following parameter: expenses domestic and abroad, number of travels in Switzerland and abroad. The goal is that further parameters can be analyzed in relationship with the exchange rate through our code very easily. 
+
+
 
 
 \newpage
-\section{Regression}
-
+\section{Linear Regression}
+Linear regression assumes a linear relation between the input variables (X) and the single output variable (Y). 
 %Lorem ipsum
  
 
 %\subsection{something}
 \newpage
 \section{Conclusion}
-\section{Work progress summary}
+
+\section{Team and work progress summary}
+The team consisted of three members. The team members had already some experience with Latex, but little or no experience with Python and also never worked with GitHub before. After some start difficulties and a lot of try and error, the team started to get along with the tools quite well. Especially video tutorials online helped to navigate and operate on GitHub. To get to the linear regression needed more time and more research. Working with Python on a regular basis is necessary. Only with some routine the programming language becomes beneficial. 
+
 %
 %----------------------------------------------------------------------------------------------------------
 
