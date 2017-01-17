@@ -7,14 +7,18 @@ Created on Tue Jan 10 11:55:46 2017
 """
 
 
-#Import pandas and glob with the usual conventions.
+# Import pandas, glob, sklearn, matplotlib and numpy with the usual conventions
+# pandas is for easy to use data structures and data analysis
+# glob is for the data import 
+# sklearn and matplotlib are important for our regression and the ploting 
+# numpy is required for the calculation of the coefficents 
 import pandas as pd
 import glob
 from sklearn import linear_model
 import matplotlib.pyplot as plt
 import numpy as np
 
-#set directory of data import files
+# set directory of data import files
 # @var curr = files directory
 curr = "./Desktop/Software Engineering/python/clone_repository/softwareengineering/Data/RV*.xlsx"
 
@@ -25,7 +29,7 @@ glob.glob(curr)
 dataset = pd.DataFrame()
 
 
-# dataset iimport function
+# dataset import function
 # @param f = current file in directory
 for f in glob.glob(curr):
     df = pd.read_excel(f)
@@ -34,26 +38,26 @@ for f in glob.glob(curr):
 #Transposition of the resulting table. Year (common row) is used as index while transposed. This way we obtain the end result as described above.
 dataset = dataset.set_index("year").T
 
-#Option to save the table as csv for visualization. For some reason "year" does not appear. Can be corrected. 
+#Option to save the table as csv for visualization
 dataset.to_csv("final_dataset.csv")
 print (dataset)
 
-#dataset['travels_private'].plot()
+# Plot the two variables against each other, x remains the same, y can be changed  
 # @var x_df = DataFrame column for base "exchange_rate"
 # @var y_df = DataFrame column variable y-value
 x_df = dataset.loc[:,["exchange_rate"]]
 y_df = dataset.loc[:,["swiss_travels"]]
 
-# identifying the parameters
+# Create linear regression object
 regr = linear_model.LinearRegression()
 regr.fit(x_df, y_df)
 
-# Plot outputs adjusting and plotting regression model
+# Plot outputs and show the graph 
 plt.scatter(x_df, y_df, color='black')
 plt.plot(x_df, regr.predict(x_df), color='blue', linewidth=3)
 plt.show()
 
-# The coefficients
+# Calculate coefficients
 print('Coefficients: \n', regr.coef_)
 # The mean squared error
 print("Mean squared error: %.2f"

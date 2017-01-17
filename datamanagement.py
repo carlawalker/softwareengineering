@@ -46,6 +46,7 @@ dataset = dataset.set_index("year").T
 
 
 #Correction to "year" column. For some reason the code won't identify it, this correction enables to make the code consider the denomination "year" again.
+<<<<<<< HEAD
 
 
 dataset = dataset.reset_index().rename(columns={"index" : "year"})
@@ -67,4 +68,15 @@ dataset = dataset.dropna()
 
 
 print (dataset)
+=======
+
+
+dataset = dataset.reset_index().rename(columns={"index" : "year"})
+dataset.columns.name = None
+
+
+#Redefining year as index.
+
+dataset.set_index("year", inplace = True)
+>>>>>>> origin/master
 
