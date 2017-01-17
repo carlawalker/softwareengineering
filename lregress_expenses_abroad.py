@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Jan 10 11:55:46 2017
-@author: carlawalker
+Regressions Module | Expenses on tourism made in other countries. 
+Objective: find the coefficients between the exchange rate and varible "expenses_abroad".
+End Result: graph plot and main indicators.
 """
 
 
-# Import sklearn, matplotlib and numpy with the usual conventions
+# Import sklearn, matplotlib and numpy with the usual conventions 
 # sklearn and matplotlib are important for our regression and the ploting 
 # numpy is required for the calculation of the coefficents 
 from sklearn import linear_model
@@ -22,7 +23,7 @@ from datamanagement import dataset
 # @var x_df = DataFrame column for base "exchange_rate"
 # @var y_df = DataFrame column variable y-value
 x_df = dataset.loc[:,["exchange_rate"]]
-y_df = dataset.loc[:,["swiss_travels"]]
+y_df = dataset.loc[:,["expenses_abroad"]]
 
 
 # Create linear regression object
