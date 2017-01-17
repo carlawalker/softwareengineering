@@ -21,6 +21,7 @@
 \usepackage[right]{eurosym}
 \usepackage{colortbl}
 \usepackage[subfigure,titles]{tocloft}
+\usepackage{subfig}
 \usepackage[pdfpagelabels=true]{hyperref}
 \usepackage[round]{natbib}
 \usepackage{listings}
@@ -254,7 +255,7 @@ With this we can now print the transposed data set and receive a table:
 
 \begin{figure}[htbp] 
   \centering
-     \includegraphics[width=0.3\textwidth]{data_table}
+     \includegraphics[width=0.4\textwidth]{data_table}
   \caption{data set according to parameters and year }
   \label{fig: figure2}
 \end{figure}
@@ -271,7 +272,11 @@ import numpy as np
 from datamanagement import dataset
 \end{verbatim}
 
-Now we are ready to plot the variables against each other. We defined, that x_df is the dataframe column for the exchange rate, whereas the y_df is the dataframe column for the y-value, which can be exchanged for any of the four parameters chosen. 
+Now we are ready to plot the variables against each other. We defined, that \begin{verbatim}
+x_df
+\end{verbatim} is the dataframe column for the exchange rate, whereas the \begin{verbatim}
+y_df
+\end{verbatim} is the dataframe column for the y-value, which can be exchanged for any of the four parameters chosen. 
 \begin{verbatim}
 x_df = dataset.loc[:,["exchange_rate"]]
 y_df = dataset.loc[:,["swiss_travels"]]
@@ -291,7 +296,7 @@ plt.show()
 The plotted graph for the Swiss travels in dependence of the exchange rate is displayed as follows: 
 \begin{figure}[htbp] 
   \centering
-     \includegraphics[width=0.3\textwidth]{regression_number_of_Swiss_travels}
+     \includegraphics[width=0.4\textwidth]{lr_swiss_travels.png}
   \caption{Regression of number of Swiss travels}
   \label{fig: figure3}
 \end{figure}
@@ -304,22 +309,30 @@ print('Coefficients: \n', regr.coef_)
 print("Mean squared error: \%.2f" \% np.mean((regr.predict(x_df) - y_df) ** 2))
 print('Variance score: \%.2f' \% regr.score(x_df, y_df))
 \end{verbatim}
-\section{analysis}
+\section{Analysis}
 For the analysis of the question of how the Exchange rate between the Swiss Franc and the Euro influences the Swiss tourism we will have a look at the regression. 
-\usepackage{subfigure}
+
 
 \begin{figure}
-    \subfigure[Foreign travels]{\includegraphics[width=0.3\textwidth]{lr_foreign_travels.png}}
-    \subfigure[Domestic travels]{\includegraphics[width=0.3\textwidth]{lr_swiss_travels.png}}
+\centering
+    \subfloat[Foreign travels]{\includegraphics[width=0.4\textwidth]{lr_foreign_travels.png}}
+     \qquad
+    \subfloat[Domestic travels]{\includegraphics[width=0.4\textwidth]{lr_swiss_travels.png}}
 \caption{Linear regression of foreign travels (left) and domestic travels (right) in relation to the Franc-Euro exchange rate}
 \end{figure}
+
 We have plotted the travels abroad against the exchange rate and the graph on the left clearly shows a negative relationship. A negative relationship means, that the bigger the exchange rate, the more people travel abroad. A rising exchange rate means, that the Swiss Franc is less valuable abroad, as an exchange rate of 1.59 means, that a Euro will cost the traveller 1.59 in comparison to a lower exchange rate. We have assumed this relationship, since it is intuitive. On the right side we plottet the domestic travels against the Swiss Franc. As assumed, we can see a positive rlationship between domestic travels and the exchange rate. Interestingly the positive relationship is driven by the year 2008, when the exchange rate was at its highest. Before that, the dots do not clearly show a positive relationship. We can hence assume, that for domestic travels a weak Swiss Franc is less important and does not influence domestic travels to a similar extend! This finding is quite interesting, as it shows, that echange fluctuations in the years between 2009 and 2015 did not or not strongly influence domestic travels, but had a strong impact on number of travels abroad. This is, because travelling abroad becomes considerably cheaper when deciding upon taking a trip, but does that also mean that people \textit{spend} more on travels abroad when the Swiss Franc is stronger? 
+
 %analyse more
 \begin{figure}
-    \subfigure[Expenses abroad]{\includegraphics[width=0.3\textwidth]{lr_expenses_abroad.png}}
-    \subfigure[Expenses domestic]{\includegraphics[width=0.3\textwidth]{lr_expenses_domestic.png}}
-\caption{Linear regression of expenses abroad (left) and domestic expenses (right) in relation to the Franc-Euro exchange rate}
+\centering
+    \subfloat[Foreign travels]{\includegraphics[width=0.4\textwidth]{lr_expenses_abroad.png}}
+     \qquad
+    \subfloat[Domestic travels]{\includegraphics[width=0.4\textwidth]{lr_expenses_domestic.png}}
+\caption{Linear regression of foreign travels (left) and domestic travels (right) in relation to the Franc-Euro exchange rate}
 \end{figure}
+
+
 Interestingly and surprisingly for our group this is not the case! The stronger the Swiss Franc is, the less people spend abroad and the more they spend in Switzerland. This disapproves our assumption, that people spend more on travelling abroad (accomodation, food, transportation expenses) whenever the foreign valuta becomes cheaper. Instead the other relation is the case! A strong franc, that buys more Euro, is rather spend in Switzerland than abroad. Especially the relation between a rising exchange rate and spendings abroad is strongly positive, meaning that a Swiss Franc buying less goods abroad (higher exchange rate) is statistically rather spend abroad. What reason is there for it to be?\\ There could be a mathematical reason to it, which means that a Euro spend abroad results in a greater expense in amounts of Swiss Francs. A Swiss Franc buying more valuta mathematically results in low expenses. A Swiss Franc buying less valuta needs a greater amount in order to buy the same amounts of foreign goods. Hence the spendings rise with a rising exchange rate. This could be an explanation for the positive relationship between the relative value of the currency and the spendings abroad. If not for mathematical reasons there also could be cultural reasons motivating to save a strong franc rather than spending it on travels abroad. Interestingly the right graph plotting domestic expenses and exchange rate shows, that a relatively weak franc leads to less domestic travel expenses, whereas a valuable franc leads to more domestic travel expenses, which means that money is not saved but spend within the own borders. This lets us assume, that there are cultural factors influencing the decsion.
 %Analyze something
 \\
@@ -348,8 +361,7 @@ The team consisted of three members. The team members had already some experienc
 % Literatur
 % ----------------------------------------------------------------------------------------------------------
 
-% Literaturliste soll im Inhaltsverzeichnis auftauchen
-Swiss Federal Statistical Office. 2016. "Zeitliche Entwicklung der Reisen mit Übernachtungen, Wohnbevölkerung ab 15 Jahren". From: https://www.bfs.admin.ch/bfs/de/home/statistiken/tourismus.assetdetail.1585234.html, retrieved 15.12.2016
+
 
 %\bibliographystyle{eehd_url}
 
@@ -364,6 +376,24 @@ Swiss Federal Statistical Office. 2016. "Zeitliche Entwicklung der Reisen mit Ü
 % Anhang
 % ----------------------------------------------------------------------------------------------------------
 
+% ----------------------------------------------------------------------------------------------------------
+% Literatur
+% ----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+% Literaturliste endgültig anzeigen
+% Literaturliste soll im Inhaltsverzeichnis auftauchen
+\section{Bibliography}
+\bibliography{literatur}
+% Literaturliste soll im Inhaltsverzeichnis auftauchen
+Swiss Federal Statistical Office. 2016. "Zeitliche Entwicklung der Reisen mit Übernachtungen, Wohnbevölkerung ab 15 Jahren". Retrieved from: \\https://www.bfs.admin.ch/bfs/de/home/statistiken/tourismus.assetdetail.1585234.html, retrieved 15.12.2016
+
+\bibliographystyle{eehd_url}
+\bibliography{literatur}
 \section{Appendix}
 
 
