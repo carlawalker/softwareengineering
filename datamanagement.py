@@ -26,13 +26,14 @@ glob.glob(curr)
 dataset = pd.DataFrame()
 
 
+
 # dataset import function
-# @param f = current file in directoryy
+# @param f = current file in directory
 for f in glob.glob(curr):
     df = pd.read_excel(f)
     dataset = dataset.append(df, ignore_index=True)
 
-    
+dataset    
 #Transposition of the resulting table. Year (common row) is used as index while transposed. This way we obtain the end result as described above.
 dataset = dataset.set_index("year").T
 
@@ -52,3 +53,4 @@ dataset = dataset.dropna()
 
 #output
 print (dataset)
+
