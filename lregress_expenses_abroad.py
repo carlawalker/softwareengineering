@@ -44,3 +44,4 @@ print("Mean squared error: %.2f"
       % np.mean((regr.predict(x_df) - y_df) ** 2))
 # Explained variance score: 1 is perfect prediction
 print('Variance score: %.2f' % regr.score(x_df, y_df))
+
