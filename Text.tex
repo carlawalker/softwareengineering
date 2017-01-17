@@ -26,7 +26,7 @@
 \usepackage{listings}
 
 
-\lstset{basicstyle=\footnotesize, captionpos=b, breaklines=true, showstringspaces=false, tabsize=2, frame=lines, numbers=left, numberstyle=\tiny, xleftmargin=2em, framexleftmargin=2em}
+\lstset{basicstyle=\footnotesize, captionpos=b, breaklines=true, showstringspaces=false, tabsize=2, frame=lines, numbers=left, numberstyle=\tiny, xleftmargin=2em, framexleftmargin=2em, language=python}
 \makeatletter
 \def\l@lstlisting#1#2{\@dottedtocline{1}{0em}{1em}{\hspace{1,5em} Lst. #1}{#2}}
 \makeatother
@@ -220,11 +220,31 @@ For our research, we decided on the following parameters: expenses - domestic an
 \section{Linear Regression}
 A Linear regression assumes a linear relation between the input variables (X) and the single output variable (Y). We assume a linear change in the expenses people are willing to make abroad and "at home" with respect to the value of the valuta. We also expect a linear relation between the exchange rate as a relative value of one currency to the other and the number of travels. A low exchange rate, e.g. 1.07 CHF/€ means, that travelling abroad becomes comparably cheaper and travelling domestically becomes relatively more expensive. We hence expect a positive linear relation between exchange rates and domestic travels and a negative linear relation between exchange rates and travels abroad. Whe expect similar relations between the exchange rate and domestic expenses resp. expenses abroad: A rising exchange rate hinders people of spending money abroad whereas a sinking exchange rate should theoretically foster the spending of money abroad.\\ We tested this theoretical approach by executing a linear regression via Python. \\
 
-To do this we first had to import some software libraries such as \textit{pandas} which is providing us with easy to use data structures and data analysis. We also imported the \textit{glob} module since we use a wildcard pattern to import our data, \textit{sklearn} which is a machine learning library allowing for regression and mean computations and interoperating with another scientific library called \textit{NumPy} to execute high-level mathematical functions like coefficients, as well as \textit{matplotlib} which is a plotting library.
+To do this we first had to import some software libraries such as \textit{pandas} which is providing us with easy to use data structures and data analysis. We also imported the \textit{glob} module since we use a wildcard pattern to import our data, \textit{sklearn} which is a machine learning library allowing for regression and mean computations and interoperating with another scientific library called \textit{NumPy} to execute high-level mathematical functions like coefficients, as well as \textit{matplotlib} which is a plotting library. In the end we read the Exel-Files in our Data-Folder containing the different parameters into Python:
 
+\begin{1stlisting}
+import pandas as pd
+import glob
+from sklearn import linear_model
+import matplotlib.pyplot as plt
+import numpy as np
 
+# set directory of data import files
+# @var curr = files directory
+curr = "./Desktop/Software Engineering/python/clone_repository/softwareengineering/Data/RV*.xlsx"
+\end{1stlisting}
 %Lorem ipsum
- 
+%\lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
+We then used \textit{}glob to create a list with all the Research Variables (RV) files in the Data folder. 
+
+%\lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
+
+
+
+#Creation of the data frame. This technique appends all the different rows according to the same year in column. 
+
+dataset = pd.DataFrame()
+
 
 %\subsection{something}
 \newpage
