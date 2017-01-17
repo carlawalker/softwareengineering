@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Regressions Module | Swiss travels. 
-Objective: find the coefficients between the exchange rate and varible "swiss_travels".
+Regressions Module | Expenses on tourism made in other countries. 
+Objective: find the coefficients between the exchange rate and varible "expenses_abroad".
 End Result: graph plot and main indicators.
 """
 
@@ -23,7 +23,7 @@ dataset
 # @var x_df = DataFrame column for base "exchange_rate"
 # @var y_df = DataFrame column variable y-value
 x_df = dataset.loc[:,["exchange_rate"]]
-y_df = dataset.loc[:,["swiss_travels"]]
+y_df = dataset.loc[:,["expenses_abroad"]]
 
 # identifying the parameters
 regr = linear_model.LinearRegression()
