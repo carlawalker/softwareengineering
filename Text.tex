@@ -304,6 +304,21 @@ print('Coefficients: \n', regr.coef_)
 print("Mean squared error: \%.2f" \% np.mean((regr.predict(x_df) - y_df) ** 2))
 print('Variance score: \%.2f' \% regr.score(x_df, y_df))
 \end{verbatim}
+\section{analysis}
+For the analysis of the question of how the Exchange rate between the Swiss Franc and the Euro influences the Swiss tourism we will have a look at the regression. 
+\usepackage{subfigure}
+\begin{figure}
+    \subfigure[Expenses abroad]{\includegraphics[width=0.3\textwidth]{lr_expenses_abroad.png}}
+    \subfigure[Expenses domestic]{\includegraphics[width=0.3\textwidth]{lr_expenses_domestic.png}}
+\caption{Linear regression of expenses abroad (left) and domestic expenses (right) in relation to the Franc-Euro exchange rate}
+\end{figure}
+
+%Analyze something
+\begin{figure}
+    \subfigure[Foreign travels]{\includegraphics[width=0.3\textwidth]{lr_foreign_travels.png}}
+    \subfigure[Domestic travels]{\includegraphics[width=0.3\textwidth]{lr_swiss_travels.png}}
+\caption{Linear regression of foreign travels (left) and domestic travels (right) in relation to the Franc-Euro exchange rate}
+\end{figure}
 
 %\subsection{something}
 \newpage
