@@ -231,16 +231,10 @@ import numpy as np
 # @var curr = files directory
 curr = "./Desktop/Software Engineering/python/clone_repository/softwareengineering/Data/RV*.xlsx"
 \end{verbatim}
-%Lorem ipsum
-%\lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
-We then used \textit{glob} to create a list with all the Research Variables (RV) files in the Data folder. 
 
-%\lstinputlisting[language=Python, firstline=26, lastline=27]{linearregression.py}
-%glob.glob(curr)
-%\subsection{Creating Data Frames}
 
 Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns:
-%\begin{1stlisting}
+\begin{verbatim}
 dataset = pd.DataFrame()
 for f in glob.glob(curr):
 df =p d.read_excel(f)
