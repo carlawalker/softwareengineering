@@ -194,10 +194,10 @@ We will first introduce our data set and parameters. In the following chapter we
 
 
 
-Our term paper researches the question how the abandonment of the Swiss franc - euro parity influences certain parameters in Swiss tourism. To analyze the question, we looked at two datasets. The first one is the historical exchange rate between the euro and the Swiss franc. The second dataset is from the Federal Statistical Office to the chronological development of travels with overnight stays, of the Swiss population from 15 years old. 
+Our term paper researches the question how the abandonment of the Swiss franc - Euro parity influences Swiss tourism. To analyze the question, we compared two datasets. The first one is the historical exchange rate between the Euro and the Swiss franc. The second dataset is from the Federal Statistical Office on the chronological development of travels with overnight stays of the Swiss population from 15 years old (Swiss Federal Statistical Office, 2016). 
 
 
-As the Swiss Exchange Rate to the Euro was falling for several years, the Swiss National Bank of Switzerland decided on September 6, 2011 to fix the minimum exchange rate of 1.20 franc for one euro. She declared, that the minimum exchange rate will be enforced with all the consequences and that she is willing to buy unlimited foreign exchanges (SNB, 2011). With this action step, the Swiss National Bank reacted to the constant threat of the Swiss Economy and the risk of a deflationary trend, which resulted from the massive overvaluation of the Swiss Franc. On January 15, the Swiss National Bank discontinued the minimum exchange rate of 1.20 Franc to the Euro (SNB, 2015). The Swiss National Bank declared that maintaining the minimum exchange rate for the Swiss franc against the euro is no longer justified. The Swiss Economy, which is oriented towards export and tourism, faced a great challenge. 
+As the Swiss Exchange Rate to the Euro was falling for several years, the Swiss National Bank of Switzerland decided on September 6, 2011 to fix the minimum exchange rate of 1.20 Franc for one Euro. The SNB declared, that the minimum exchange rate will be enforced with all the consequences and that it is willing to buy unlimited foreign exchanges (SNB, 2011). With this action step, the Swiss National Bank reacted to the constant threat of the Swiss Economy and the risk of a deflationary trend which resulted from the massive overvaluation of the Swiss Franc. On January 15, the Swiss National Bank discontinued the minimum exchange rate of 1.20 Franc to the Euro (SNB, 2015). The Swiss National Bank declared that maintaining the minimum exchange rate for the Swiss franc against the Euro is no longer justified. The Swiss Economy which is oriented towards export and tourism, reacted with great concernes. 
 
 \begin{figure}[htbp] 
   \centering
@@ -206,19 +206,19 @@ As the Swiss Exchange Rate to the Euro was falling for several years, the Swiss 
   \label{fig: figure1}
 \end{figure}
 
-For our term paper, we took data from Statista, a statistics portal. The statistic chosen displays the annual exchange rate (standardized measure) of the euro to the Swiss franc (EUR-CHF), according to the data of the European Central Bank. We only considered the data from the years 2008 to 2016. In 2008, for example, the euro to Swiss franc exchange rate was equal to approximately 1.59, which means that one euro could buy 1.59 Swiss francs. In 2015, the euro to Swiss franc exchange rate was equal to approximately 1.07, which means that one euro could only buy 1.07 Swiss francs (Statista, 2016)
+For our term paper, we took data from Statista, a statistics portal. The statistic chosen displays the annual exchange rate (standardized measure) of the Euro to the Swiss franc (EUR-CHF), according to the data of the European Central Bank. We only considered the data from the years 2008 to 2016. In 2008, for example, the Euro to Swiss franc exchange rate was equal to approximately 1.59, which means that one euro could buy 1.59 Swiss francs. In 2015, the Euro to Swiss franc exchange rate was equal to approximately 1.07, which means that one euro could only buy 1.07 Swiss francs (Statista, 2016). This resulted in huge value losses of European valuta and made the Swiss Franc savings more valuable.
 
 
-For analyzing the relationship between the EUR-CHF exchange rate and Swiss tourism, the Federal Statistical Office provides a detailed dataset of the chronological development of travels with overnight stays. The dataset is available as an Excel-table for download. The table contains information such as the number of travels per person, the demographics of the people who travelled and more detailed information about the travels itself, including the duration, the purpose, the type of accommodation, the means of transport, the destination and more. Furthermore, the table shows the daily expenses per person during the traveling. 
+The Federal Statistical Office provides a detailed dataset of the chronological development of travels with overnight stays. This dataset contains statistical information regarding the private domestic tourism expenses and private tourism expenses of the Swiss Nationals abroad per person and day. This information includes accomodation expenses as well as money spent on meals and drinks, transportation costs and other costs. The dataset also includes information on the amount of foreign travels (travels outside of Switzerland) and travels within the boundaries of the Swiss territory in thousand. We can therefore compare, wheter either of the parameters changes with regard to the other when plotted against the exchange rate. The dataset is available as an Excel-table for download. The table also contains information such as the number of travels per person, the demographics of the people who travelled and more detailed information about the travels itself, including the duration, the purpose, the type of accommodation, the means of transport, the destination and more. This information is not considered in this paper.
 
-For our research, we decided for the following parameter: expenses domestic and abroad, number of travels in Switzerland and abroad. The goal is that further parameters can be analyzed in relationship with the exchange rate through our code very easily. 
+For our research, we decided on the following parameters: expenses - domestic and abroad, number of travels - in Switzerland and abroad. The goal is that further parameters can be analyzed in relationship with the exchange rate through our code very easily. 
 
 
 
 
 \newpage
 \section{Linear Regression}
-Linear regression assumes a linear relation between the input variables (X) and the single output variable (Y). 
+A Linear regression assumes a linear relation between the input variables (X) and the single output variable (Y). We assume a linear change in the expenses people are willing to make abroad and "at home" with respect to the value of the valuta. We also expect a linear relation between the exchange rate as a relative value of one currency to the other and the number of travels. A low exchange rate, e.g. 1.07 CHF/€ means, that travelling abroad becomes comparably cheaper and travelling domestically becomes relatively more expensive. We hence expect a positive linear relation between exchange rates and domestic travels and a negative linear relation between exchange rates and travels abroad. Whe expect similar relations between the exchange rate and domestic expenses resp. expenses abroad: A rising exchange rate hinders people of spending money abroad whereas a sinking exchange rate should theoretically foster the spending of money abroad.\\ We tested this theoretical approach with the help of Python. For this purpose we first 
 %Lorem ipsum
  
 
@@ -242,7 +242,7 @@ The team consisted of three members. The team members had already some experienc
 % ----------------------------------------------------------------------------------------------------------
 
 % Literaturliste soll im Inhaltsverzeichnis auftauchen
-
+Swiss Federal Statistical Office. 2016. "Zeitliche Entwicklung der Reisen mit Übernachtungen, Wohnbevölkerung ab 15 Jahren". From: https://www.bfs.admin.ch/bfs/de/home/statistiken/tourismus.assetdetail.1585234.html, retrieved 15.12.2016
 
 %\bibliographystyle{eehd_url}
 
