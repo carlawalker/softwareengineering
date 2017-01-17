@@ -237,7 +237,7 @@ glob.glob(curr)
 \end{verbatim}
 
 
-Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns:
+Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns. The reason why we splitted the code into different parts and created Data Frames is not only for better comprehension but also to make sure, that the code still works in case the Exel file faces changes. Hence, we can add more data and rows in the exel file without the code returning errors. The data frame was created as follows:
 \begin{verbatim}
 dataset = pd.DataFrame()
 for f in glob.glob(curr):
@@ -258,7 +258,6 @@ With this we can now print the transposed data set and receive a table:
   \caption{data set according to parameters and year }
   \label{fig: figure2}
 \end{figure}
-
 
 
 \subsection{Plotting}
