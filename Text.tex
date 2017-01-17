@@ -307,6 +307,14 @@ print('Variance score: \%.2f' \% regr.score(x_df, y_df))
 \section{analysis}
 For the analysis of the question of how the Exchange rate between the Swiss Franc and the Euro influences the Swiss tourism we will have a look at the regression. 
 \usepackage{subfigure}
+
+\begin{figure}
+    \subfigure[Foreign travels]{\includegraphics[width=0.3\textwidth]{lr_foreign_travels.png}}
+    \subfigure[Domestic travels]{\includegraphics[width=0.3\textwidth]{lr_swiss_travels.png}}
+\caption{Linear regression of foreign travels (left) and domestic travels (right) in relation to the Franc-Euro exchange rate}
+\end{figure}
+We have plotted the travels abroad against the exchange rate and the graph on the left clearly shows a negative relationship. A negative relationship means, that the bigger the exchange rate, the more people travel abroad. A rising exchange rate means, that the Swiss Franc is less valuable abroad, as an exchange rate of 1.59 means, that a Euro will cost the traveller 1.59 in comparison to a lower exchange rate. We have assumed this relationship, since it is intuitive. On the right side we plottet the domestic travels against the Swiss Franc. As assumed, we can see a positive rlationship between domestic travels and the exchange rate. Interestingly the positive relationship is driven by the year 2008, when the exchange rate was at its highest. Before that, the dots do not clearly show a positive relationship. We can hence assume, that for domestic travels a weak Swiss Franc is less important and does not influence domestic travels to a similar extend! This finding is quite interesting, as it shows, that echange fluctuations in the years between 2009 and 2015 did not or not strongly influence domestic travels, but had a strong impact on number of travels abroad. This is, because travelling abroad becomes considerably cheaper when deciding upon taking a trip, but does that also mean that people spend more on travels abroad when the Swiss Franc is stronger? 
+%analyse more
 \begin{figure}
     \subfigure[Expenses abroad]{\includegraphics[width=0.3\textwidth]{lr_expenses_abroad.png}}
     \subfigure[Expenses domestic]{\includegraphics[width=0.3\textwidth]{lr_expenses_domestic.png}}
@@ -314,12 +322,7 @@ For the analysis of the question of how the Exchange rate between the Swiss Fran
 \end{figure}
 
 %Analyze something
-\begin{figure}
-    \subfigure[Foreign travels]{\includegraphics[width=0.3\textwidth]{lr_foreign_travels.png}}
-    \subfigure[Domestic travels]{\includegraphics[width=0.3\textwidth]{lr_swiss_travels.png}}
-\caption{Linear regression of foreign travels (left) and domestic travels (right) in relation to the Franc-Euro exchange rate}
-\end{figure}
-
+\\
 %\subsection{something}
 \newpage
 \section{Conclusion}
