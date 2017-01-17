@@ -219,6 +219,7 @@ For our research, we decided on the following parameters: expenses - domestic an
 \newpage
 \section{Linear Regression}
 A Linear regression assumes a linear relation between the input variables (X) and the single output variable (Y). We assume a linear change in the expenses people are willing to make abroad and "at home" with respect to the value of the valuta. We also expect a linear relation between the exchange rate as a relative value of one currency to the other and the number of travels. A low exchange rate, e.g. 1.07 CHF/€ means, that travelling abroad becomes comparably cheaper and travelling domestically becomes relatively more expensive. We hence expect a positive linear relation between exchange rates and domestic travels and a negative linear relation between exchange rates and travels abroad. Whe expect similar relations between the exchange rate and domestic expenses resp. expenses abroad: A rising exchange rate hinders people of spending money abroad whereas a sinking exchange rate should theoretically foster the spending of money abroad.\\ We tested this theoretical approach by executing a linear regression via Python. \\
+\subsection{Reading the Data}
 
 To do this we first had to import some software libraries such as \textit{pandas} which is providing us with easy to use data structures and data analysis. We also imported the \textit{glob} module since we use a wildcard pattern to import our data, \textit{sklearn} which is a machine learning library allowing for regression and mean computations and interoperating with another scientific library called \textit{NumPy} to execute high-level mathematical functions like coefficients, as well as \textit{matplotlib} which is a plotting library. In the end we read the Exel-Files in our Data-Folder containing the different parameters into Python:
 
@@ -226,7 +227,7 @@ To do this we first had to import some software libraries such as \textit{pandas
 import pandas as pd
 import glob
 from sklearn import linear_model
-import matplotlib.pyplot as plt
+{import matplotlib.pyplot as plt
 import numpy as np
 
 # set directory of data import files
@@ -239,6 +240,8 @@ We then used \textit{}glob to create a list with all the Research Variables (RV)
 
 \lstinputlisting[language=Python, firstline=26, lastline=27]{linearregression.py}
 %glob.glob(curr)
+\subsection{Creating Data Frames}
+
 Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns:
 \begin{1stlisting}
 dataset = pd.DataFrame()
@@ -258,6 +261,8 @@ x_df = dataset.loc[:,["exchange_rate"]]
 y_df = dataset.loc[:,["swiss_travels"]]
 \end{1stlisting}
 
+\subsection{Plotting}
+
 Now we can run the regression, plot the results and ask our interface to return the graphs:
 \begin{1stlisting}
 regr = linear_model.LinearRegression()
@@ -274,7 +279,10 @@ The plotted graph is displayed as follows:
  % \caption{Variable explorer in Python}
  % \label{fig: figure1}
 %\end{figure}
-We can now see the relation between the variables. In a last step we conduct the coefficients, the mean sqare error and the variance:
+We can now see the relation between the variables. 
+
+\subsection{Coefficients}
+In a last step we conduct the coefficients, the mean sqare error and the variance:
 \begin{1stlisting}
 print('Coefficients: \n', regr.coef_)
 print("Mean squared error: \%.2f" \% np.mean((regr.predict(x_df) - y_df) ** 2))
@@ -285,8 +293,14 @@ print('Variance score: \%.2f' \% regr.score(x_df, y_df))
 \newpage
 \section{Conclusion}
 
+We have plotted the four columns of our data set and concluded the following results: 
+
+%Here comes something 
+
+
+
 \section{Team and work progress summary}
-The team consisted of three members. The team members had already some experience with Latex, but little or no experience with Python and also never worked with GitHub before. After some start difficulties and a lot of try and error, the team started to get along with the tools quite well. Especially video tutorials online helped to navigate and operate on GitHub. To get to the linear regression needed more time and more research. Working with Python on a regular basis is necessary. Only with some routine the programming language becomes beneficial. 
+The team consisted of three members. The team members had already some experience with basic LaTex, but little or no experience with Python and also never worked with GitHub before. After some start difficulties and a lot of trial and error, the team started to get along with the tools. Especially video tutorials online helped to navigate and operate on GitHub. In order to avoid version clashes we coordinated our working time with the help of social media, since we quickly learned that it is otherwise neccessary to approve/disregard all the changes that happened on the document in the meantime. To program a working linear regression needed more time and more research. The large amount of help material available online for many problems that occured and suggestions to embellish the code were implemented, where the solutions worked. The code was written partially in Switzerland, where two team members had the opportunity to meet physically and amended and improved remotely by the third member. Once the code was set and we got some routine in working with LaTex we examined the result of the data regression and wrote a conclusion. Working with Python on a regular basis is necessary. Only with some routine the programming language becomes beneficial and easy to use. Our team had a steep learning curve when writing the paper and understood, that a large part of the work is invisble, namely finding bugs when pieces of code are no longer running or lead to intuitively wrong results, trying out solutions and failing forward and doing research on better and more universal ways of coding. Nevertheless our team considered this experience very valuable for our technology-led future working place and we will further enhance the knowledge we have gotten throughout the working progress with this paper.
 
 %
 %----------------------------------------------------------------------------------------------------------
