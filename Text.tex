@@ -237,14 +237,49 @@ curr = "./Desktop/Software Engineering/python/clone_repository/softwareengineeri
 %\lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
 We then used \textit{}glob to create a list with all the Research Variables (RV) files in the Data folder. 
 
-%\lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
-
-
-
-#Creation of the data frame. This technique appends all the different rows according to the same year in column. 
-
+\lstinputlisting[language=Python, firstline=26, lastline=27]{linearregression.py}
+%glob.glob(curr)
+Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns:
+\begin{1stlisting}
 dataset = pd.DataFrame()
+for f in glob.glob(curr):
+df = pd.read_excel(f)
+dataset = dataset.append(df, ignore_index=True)
+dataset = dataset.set_index("year").T
+\end{1stlisting}
 
+With this we can now print the transposed data set and receive a table:
+
+%we shall not forget to insert table.
+
+Now we are ready to plot the variables against each other. We defined, that x_df is the datafrage column for the exchange rate, whereas the y_df is the dataframe column for the y-value. 
+\begin{1stlisting}
+x_df = dataset.loc[:,["exchange_rate"]]
+y_df = dataset.loc[:,["swiss_travels"]]
+\end{1stlisting}
+
+Now we can run the regression, plot the results and ask our interface to return the graphs:
+\begin{1stlisting}
+regr = linear_model.LinearRegression()
+regr.fit(x_df, y_df)
+plt.scatter(x_df, y_df, color='black')
+plt.plot(x_df, regr.predict(x_df), color='blue', linewidth=3)
+plt.show()
+\end{1stlisting}
+
+The plotted graph is displayed as follows: 
+%\begin{figure}[htbp] 
+ % \centering
+ %    \includegraphics[width=0.3\textwidth]{regression_number_of_travels}
+ % \caption{Variable explorer in Python}
+ % \label{fig: figure1}
+%\end{figure}
+We can now see the relation between the variables. In a last step we conduct the coefficients, the mean sqare error and the variance:
+\begin{1stlisting}
+print('Coefficients: \n', regr.coef_)
+print("Mean squared error: \%.2f" \% np.mean((regr.predict(x_df) - y_df) ** 2))
+print('Variance score: \%.2f' \% regr.score(x_df, y_df))
+\end{1stlisting}
 
 %\subsection{something}
 \newpage
