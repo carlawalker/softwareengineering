@@ -13,30 +13,58 @@ import pandas as pd
 import glob
 
 
+#set directory of data import files
+# @var curr = files directory
+curr = "../softwareengineering/Data/RV*.xlsx"
+
+
 #Using glob to create a list with all the Research Variables (RV) files in the Data folder.  
 
 
-glob.glob("../softwareengineering/Data/RV*.xlsx")
+glob.glob(curr)
 
 
 #Creation of the data frame. This technique appends all the different rows according to the same year in column.  
 
 
 dataset = pd.DataFrame()
-for f in glob.glob("../softwareengineering/Data/RV*.xlsx"):
+
+
+# dataset import function
+# @param f = current file in directory
+
+
+for f in glob.glob(curr):
     df = pd.read_excel(f)
     dataset = dataset.append(df, ignore_index=True)
 
-    
+dataset    
 #Transposition of the resulting table. Year (common row) is used as index while transposed. This way we obtain the end result as described above.
     
 
 dataset = dataset.set_index("year").T
 
-dataset
+
+#Correction to "year" column. For some reason the code won't identify it, this correction enables to make the code consider the denomination "year" again.
 
 
-#Option to save the table as csv for visualization. For some reason "year" does not appear. Can be corrected. 
+dataset = dataset.reset_index().rename(columns={"index" : "year"})
+dataset.columns.name = None
 
 
-dataset.to_csv("final_dataset.csv")
+#Redefining year as index.
+
+dataset.set_index("year", inplace = True)
+
+
+#Remove rows with any "NaN" value
+
+
+dataset = dataset.dropna()
+
+
+#output
+
+
+print (dataset)
+
