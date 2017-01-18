@@ -59,7 +59,7 @@
 \rhead{\thesection\space\contentsname}
 \lfoot{Software Engineering}
 \cfoot{ }
-\rfoot{\ \linebreak Seite \thepage}
+\rfoot{\ \linebreak Page \thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -79,7 +79,7 @@
 	\textbf{Software Engineering}\\
 \vfill
 	\Large
-	\textbf{The effect of the abandonment of the Swiss Franc - Euro parity on tourism}\\
+	\textbf{The effect of the abandonment of the\\Swiss Franc - Euro parity on tourism}\\
 \vfill
 	\Large
 	{Prof. Dr. Philipp Zahn}\\
@@ -100,7 +100,7 @@ Student Number: 12-749-677\\
 Carla Walker, Master of Business Innovation HSG\\ 
 Student Number: 12-611-091\\ 
 
-Joao Matias, Bachelor of Economics University of Lissabon\\ 
+Jo\~ao Matias, Bachelor of Economics Nova SBE\\ 
 Student Number: 16-601-809\\ 
 \vfill
 Group Project Documentation\\ 
@@ -177,9 +177,9 @@ Group Project Documentation\\
 %What are the tools that we are going to use? Python and Latex. 
 
 
-On January 15th the Swiss National Bank decided to abandon the Swiss Franc - Euro parity of 1.20:1. The financial markets reacted immediately: The exchange rate fell drastically and a Euro temporarily was worth less than 0.8 Swiss Francs. The decision surprised experts and executives alike and evoked great concerns regarding the future competitiveness of the Swiss industries. Some of the analysis are yet to be made and conclusions to be drawn. The risen value of the Swiss currency also left the national tourism industry sorrowful, as hotel owners and owners of popular touristic attractions alike feared a diminishing number of foreign tourists and hence missing out on revenue. Our project will focus on the tourism industry: We will conduct a simple regression to see, whether the decision of the Swiss National Bank on abandoning the parity had any effect on the national tourism industry. Did the tourism in the country decline or did it remain unchanged? How did the strong Swiss Franc influence the travel behavior within and outside of Switzerland? Are the Swiss traveling more since January 15th due to the risen value of their currency? Can we conclude an impact on tourism on the basis of tourist numbers? 
+On January 15th the Swiss National Bank decided to abandon the Swiss Franc - Euro parity of 1.20:1. The financial markets reacted immediately: The exchange rate fell drastically and a Euro temporarily was worth less than 0.8 Swiss Francs. The decision surprised experts and executives alike and evoked great concerns regarding the future competitiveness of the Swiss industries. Some of the analysis are yet to be made and conclusions to be drawn. The risen value of the Swiss currency also left the national tourism industry sorrowful, as hotel owners and owners of popular touristic attractions alike feared a diminishing number of foreign tourists and hence missing out on revenue. Our project will focus on the tourism industry: We will conduct a simple regression to see, whether the decision of the Swiss National Bank on abandoning the parity had any effect on the national tourism industry. Did the tourism in the country decline or did it remain unchanged? How did the strong Swiss Franc influence the travel behavior within and outside of Switzerland? Are the Swiss travelling more since January 15th due to the risen value of their currency? Can we conclude an impact on tourism on the basis of tourist numbers? 
 
-We will analyze this by using a data set provided by the Federal Statistical Office. The Federal Statistical Office publishes a variety of data on tourism throughout the year. For 2015 there is a comprehensive set of data available, gathered in form of Excel-files and officially published. For the year 2016 there is a data set available gathering the data of the first half of the year which we will use as a proxy for the year 2016, since more recent data will not be available before February. These data sets will be compared to the data before January 15th/2015 and a regression on the exchange rate of the Swiss Franc to Euro will be made. We will therefore use financial data published at "Finanzen.net", so both sources are trustworthy and well known. We will compute a regression with the help of a code written in Python on Spyder. To do that, we will remotely collaborate with the help of GitHub, a platform used to write code in groups. GitHub will also help us with the coordination and collaboration challenge connected to our project.\\
+We will analyze this by using a data set provided by the Federal Statistical Office. The Federal Statistical Office publishes a variety of data on tourism throughout the year. For 2015 there is a comprehensive set of data available, gathered in form of Excel-files and officially published. These data sets will be compared to the data before January 15th/2015 and a regression on the exchange rate of the Swiss Franc to Euro will be made. We will therefore use financial data published at "statista.com", so both sources are trustworthy and well known. We will compute a regression with the help of a code written in Python on Spyder. To do that, we will remotely collaborate with the help of GitHub, a platform used to write code in groups. GitHub will also help us with the coordination and collaboration challenge connected to our project.\\
 For the documentation of our project we have used LateX, as it is a tool easily embedding both Python Code and different types of content. \\
 \\
 We will first introduce our data set and parameters. In the following chapter we will conduct the regression and present the results of our Python code. We will add a short explanation on the code, so that the code can be easily understood and reproduced. In the last part we will conclude on the tourism effects of the parity abandonment and assess, to what extend the concerns expressed by hotel owners and experts were justified. 
@@ -221,7 +221,12 @@ For our research, we decided on the following parameters: expenses - domestic an
 \section{Linear Regression}
 A Linear regression assumes a linear relation between the input variables (X) and the single output variable (Y). We assume a linear change in the expenses people are willing to make abroad and "at home" with respect to the value of the valuta. We also expect a linear relation between the exchange rate as a relative value of one currency to the other and the number of travels. A low exchange rate, e.g. 1.07 CHF/Euro means, that travelling abroad becomes comparably cheaper and travelling domestically becomes relatively more expensive. We hence expect a positive linear relation between exchange rates and domestic travels and a negative linear relation between exchange rates and travels abroad. Whe expect similar relations between the exchange rate and domestic expenses resp. expenses abroad: A rising exchange rate hinders people of spending money abroad whereas a sinking exchange rate should theoretically foster the spending of money abroad.\\ We tested this theoretical approach by executing a linear regression via Python. \\
 \subsection{Data Management}
-In order to execute a regression written in Python we first had to set up a file to manage the data. We parsed multiple Exel-Files in order to combine the data. The output will be a table with a column for the data in each exel file, which each row corresponding to a given year. Concretely, the parameters described above will appear in a single merged file in columns indexed by year. 
+In order to execute a regression written in Python we first had to set up a file to manage the data. We parsed multiple Excel files in order to combine the data. The output will be a table with a column for the data in each excel file, which each row corresponding to a given year. Concretely, the parameters described above will appear in a single merged file in columns indexed by year. 
+
+In this part, we wanted to automate the most which translated into the following objective: the researcher only needs to save the Excel files with a specific simple setup and then the code arranges all those files and makes the data usable for the calculations required. The basic setup of the file is characterised by a row listing the years and each one of the other rows the research variables. This was the shortest and the easiest methodology, given our raw data file. 
+
+We assume this will be the process that automates the most, given variables presented in the same way.
+\\      
 \subsection{Reading the Data}
 
 To do this we first had to import some software libraries such as \textit{pandas} which is providing us with easy to use data structures and data analysis. We also imported the \textit{glob} module since we use a wildcard pattern to import our data. 
@@ -238,7 +243,7 @@ glob.glob(curr)
 \end{verbatim}
 
 
-Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns. The reason why we splitted the code into different parts and created Data Frames is not only for better comprehension but also to make sure, that the code still works in case the Exel file faces changes. Hence, we can add more data and rows in the exel file without the code returning errors. The data frame was created as follows:
+Afterwards we created the Data Frame. This is neccesary to append all the different rows with our data according to the same year in columns. The reason why we splitted the code into different parts and created Data Frames is not only for better comprehension but also to make sure, that the code still works in case the Excel file faces changes. Hence, we can add more data and rows in the excel file without the code returning errors. The data frame was created as follows:
 \begin{verbatim}
 dataset = pd.DataFrame()
 for f in glob.glob(curr):
@@ -300,15 +305,28 @@ The plotted graph for the Swiss travels in dependence of the exchange rate is di
   \caption{Regression of number of Swiss travels}
   \label{fig: figure3}
 \end{figure}
+
 We can now see the relation between the variables for every single column just by changing the \textit{y}-Variable. We can hence recreate the regression with any of the four parameters we have already described in the dataset chapter. 
 
 \subsection{Coefficients}
-In a last step we conduct the coefficients, the mean sqare error and the variance:
+In a last step we conduct the coefficients, the mean square error and the variance:
 \begin{verbatim}
 print('Coefficients: \n', regr.coef_)
 print("Mean squared error: \%.2f" \% np.mean((regr.predict(x_df) - y_df) ** 2))
 print('Variance score: \%.2f' \% regr.score(x_df, y_df))
 \end{verbatim}
+
+
+For the number of Swiss travels we obtained a coefficient of 3372, meaning that, on average, for an increase of 0.1 units in the exchange rate, the number of travels within Switzerland increases in 337 thousand (values of number of travels in thousands). The explained variance score is 0.41, which is a fairly good indicator of the predictability of this simple linear regression. Almost half of the variance is explained, and half it is not. The mean error (square root of the mean squared error) is 659, on average, for a unit change in the  variation of the exchange rate, the deviation from reality would be 659 thousand travels. In a coefficient of 3372 thousands, it enables a reasonable confidence interval. 
+
+The number of travels to foreign countries, -4983 is the coefficient. Meaning that, on average, for an increase in 0.1 units in the exchange rate leads to a decrease of 498 thousand travels to foreign coutries (values of number of travels in thousands). The variance score is similar to the one for Swiss travels, 0.48, and the error is higher. The predictability seems higher, but the error is also higher. 
+
+Analyzing the relationship between the Daily Expenses per person Abroad in private travels and the exchange rate we observe a positive coefficient of 41.57, meaning that, for each decimal increase in the exchange rate, these daily expenses increase, on average, 4.2 francs. The mean squared error, 33.26, is considered small. Considering also an explained variance of 0.58, it is the most predictable variable we have, I so the most reliable. 
+
+The domestic expenses, also given in a daily measure per person considering only private travels is less reliable to derive conclusions from. The variance score is 0.04, the regression will have a difficult time to explain future values. This can me due to abnormal values resulting from other factors not considered in the simple linear regression. Even though the exact value for the coefficient, -12.26, can be unprecise, the negative relationship gives evidence that less money is spent in Switzerland and more in foreign countries – the coefficient is negative in “expenses_abroad” variable. 
+
+In the explanation of the coefficient was made a decimal interpretation because it is more likely to have those kind of variations and therefore the interpretation is easier to understand.   
+
 \section{Analysis}
 For the analysis of the question of how the Exchange rate between the Swiss Franc and the Euro influences the Swiss tourism we will have a look at the regression. 
 
@@ -321,7 +339,7 @@ For the analysis of the question of how the Exchange rate between the Swiss Fran
 \caption{Linear regression of foreign travels (left) and domestic travels (right) in relation to the Franc-Euro exchange rate}
 \end{figure}
 
-We have plotted the travels abroad against the exchange rate and the graph on the left clearly shows a negative relationship. A negative relationship means, that the bigger the exchange rate, the more people travel abroad. A rising exchange rate means, that the Swiss Franc is less valuable abroad, as an exchange rate of 1.59 means, that a Euro will cost the traveller 1.59 in comparison to a lower exchange rate. We have assumed this relationship, since it is intuitive. On the right side we plottet the domestic travels against the Swiss Franc. As assumed, we can see a positive rlationship between domestic travels and the exchange rate. Interestingly the positive relationship is driven by the year 2008, when the exchange rate was at its highest. Before that, the dots do not clearly show a positive relationship. We can hence assume, that for domestic travels a weak Swiss Franc is less important and does not influence domestic travels to a similar extend! This finding is quite interesting, as it shows, that echange fluctuations in the years between 2009 and 2015 did not or not strongly influence domestic travels, but had a strong impact on number of travels abroad. This is, because travelling abroad becomes considerably cheaper when deciding upon taking a trip, but does that also mean that people \textit{spend} more on travels abroad when the Swiss Franc is stronger? 
+We have plotted the travels abroad against the exchange rate and the graph on the left clearly shows a negative relationship. A negative relationship means, that the bigger the exchange rate, the more people travel abroad. A rising exchange rate means, that the Swiss Franc is less valuable abroad, as an exchange rate of 1.59 means, that a Euro will cost the traveller 1.59 in comparison to a lower exchange rate. We have assumed this relationship, since it is intuitive. On the right side we plottet the domestic travels against the Swiss Franc. As assumed, we can see a positive rlationship between domestic travels and the exchange rate. Interestingly the positive relationship is driven by the year 2008, when the exchange rate was at its highest. Before that, the dots do not clearly show a positive relationship. We can hence assume, that for domestic travels a weak Swiss Franc is less important and does not influence domestic travels to a similar extend! This finding is quite interesting, as it shows, that exchange fluctuations in the years between 2009 and 2015 did not or not strongly influence domestic travels, but had a strong impact on number of travels abroad. This is, because travelling abroad becomes considerably cheaper when deciding upon taking a trip, but does that also mean that people \textit{spend} more on travels abroad when the Swiss Franc is stronger? 
 
 %analyse more
 \begin{figure}
@@ -345,6 +363,8 @@ It is interesting to notice, that a strong franc makes people travel abroad more
 
 \section{further research}
 Our research question was created on order to make scientific use of programming knowledge in Python and LaTex with the help of Github. It would hence be out of scope to eliminate the mathematical bias described above or do research on the different results. Future research should not only include the 8-year span we chose but look at a bigger time frame. Also we leave it to future research to find clear and reasonable explanations for the results we received, especially those results, that disapproved the assumptions. Finally, we would like to outline, that the given work has not only provided us with further interesting questions but also put our newly acquired programming knowledge to scientific use in form of a short paper. 
+
+The full automation objective was not completely attained due to the lack of coding knowledge mainly. Although our team truly believes and suggests that including the graphs as code and not image and the values of coefficients directly imported from the python modules would lead us to accomplish the goal. Conditional functions based on the coefficient's values to write specific sentences considering the scenarios could be necessary, however would not be sufficient for every case.
 
 \section{Team and work progress summary}
 The team consisted of three members. The team members had already some experience with basic LaTex, but little or no experience with Python and also never worked with GitHub before. After some start difficulties and a lot of trial and error, the team started to get along with the tools. Especially video tutorials online helped to navigate and operate on GitHub. In order to avoid version clashes we coordinated our working time with the help of social media, since we quickly learned that it is otherwise neccesary to approve/disregard all the changes that happened on the document in the meantime. To program a working linear regression needed more time and more research. The large amount of help material available online for many problems that occurred and suggestions to embellish the code were implemented, where the solutions worked. The code was written partially in Switzerland, where two team members had the opportunity to meet physically and amended and improved remotely by the third member. Once the code was set and we got some routine in working with LaTex we examined the result of the data regression and wrote a conclusion. Working with Python on a regular basis is necessary. Only with some routine the programming language becomes beneficial and easy to use. Our team had a steep learning curve when writing the paper and understood, that a large part of the work is invisible, namely finding bugs when pieces of code are no longer running or lead to intuitively wrong results, trying out solutions and failing forward and doing research on better and more universal ways of coding. Nevertheless our team considered this experience very valuable for our technology-led future working place and we will further enhance the knowledge we have gotten throughout the working progress with this paper.
